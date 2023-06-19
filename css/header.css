@@ -13,8 +13,6 @@ header {
 }
 
 .info-bar__name {
-  padding-left: 30%;
-  padding-right: 30%;
   font-size: 50px;
   font-weight: bold;
 }
