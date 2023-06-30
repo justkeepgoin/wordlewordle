@@ -36,8 +36,13 @@ function appStart() {
       if (입력한_글자 === 정답_글자) {
         맞은_갯수 += 1;
         block.style.background = "#6aaa64";
-      } else if (정답.includes(입력한_글자)) block.style.background = "#d1b036";
-      else block.style.background = "#787C7E";
+        // 애니메이션 클래스 추가
+        block.classList.add("correct-animation");
+      } else if (정답.includes(입력한_글자)) {
+        block.style.background = "#d1b036";
+      } else {
+        block.style.background = "#787C7E";
+      }
       block.style.color = "white";
     }
 
@@ -87,7 +92,8 @@ function appStart() {
     }
   };
 
-  // 키보드 클릭 이벤트 추가
+  // 키보드 클릭 이벤트
+
   const footerKeys = document.querySelectorAll(".board-key");
 
   footerKeys.forEach((key) => {
