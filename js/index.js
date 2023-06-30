@@ -87,6 +87,30 @@ function appStart() {
     }
   };
 
+  // 키보드 클릭 이벤트 추가
+  const footerKeys = document.querySelectorAll(".board-key");
+
+  footerKeys.forEach((key) => {
+    key.addEventListener("click", () => {
+      const 입력한_글자 = key.innerText;
+      const block = document.querySelector(
+        `.board-block[data-index='${attempts}${index}']`
+      );
+      block.innerText = 입력한_글자;
+      index++;
+
+      if (index === 5) {
+        handleEnterKey();
+      }
+    });
+  });
+
+  const enterKey = document.querySelector(".board-key__enter");
+  enterKey.addEventListener("click", handleEnterKey);
+
+  const backspaceKey = document.querySelector(".board-key__back-space");
+  backspaceKey.addEventListener("click", handleBackspace);
+
   startTimer();
   window.addEventListener("keydown", handlekeydown);
 }
